@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: mybatis
+
+  aop:
+    proxy-target-class: true
+    auto: true
+
+
+  security:
+    user:
+      password: 123456
+      name: user
+      roles: admin
+
+server:
+  port: 8080
+

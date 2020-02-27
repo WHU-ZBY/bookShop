@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zby.bookshop.dao.BookMapper">
+  <select id="selectByPrimaryKey" resultType="com.zby.bookshop.pojo.Book">
+    select * from  book where id =#{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="int">
+    delete from book where id =#{id}
+  </delete>
+  <update id="updateByPrimaryKey" parameterType="com.zby.bookshop.pojo.Book">
+    update book
+    set bookName =#{bookName},
+        author = #{author},
+        createTime=#{createTime},
+        intro = #{intro}
+    where id =#{id}
+  </update>
+  <insert id="insert" parameterType="com.zby.bookshop.pojo.Book" useGeneratedKeys="true" keyProperty="id" >
+    insert into book (bookName,author,createTime,intro) values (#{bookName},#{author},#{createTime},#{intro})
+  </insert>
+  <select id="isRepeatBook" resultType="boolean">
+    select * from book where bookName = #{name}
+  </select>
+  <select id="get50Books" resultType="com.zby.bookshop.pojo.Book">
+      select * from book order by id desc limit 50
+  </select>
+</mapper>
