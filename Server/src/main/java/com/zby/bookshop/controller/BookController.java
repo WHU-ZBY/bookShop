@@ -56,11 +56,22 @@ public class BookController {
 
     @CrossOrigin
     @ResponseBody
-    @RequestMapping(value = "/getBooksByCategory")
-    public List<BookCategory> getBookCategoryListByCategory(int categoryid)
+    @RequestMapping(value = "/getBookWrapsByCategory")
+    public List<BookWrap> getBookCategoryListByCategory(int categoryid)
     {
-        return  categoryService.selectBookCategoryByCategoryId(categoryid);
+        List<BookCategory> bookCategories =  categoryService.selectBookCategoryByCategoryId(categoryid);
+        List<BookWrap> bookWraps = bookService.getBookWrapByCategoryList(bookCategories);
+        return bookWraps;
     }
+    @CrossOrigin
+    @ResponseBody
+    @RequestMapping(value = "/getBooksByCategory")
+    public List<Book> getBooksByCategory(int categoryid)
+    {
+        return bookService.getBooksByCategoryId(categoryid);
+    }
+
+
     @CrossOrigin
     @ResponseBody
     @RequestMapping(value = "/likeBook")
@@ -93,4 +104,14 @@ public class BookController {
     {
         return categoryService.insertBookCategory(bookCategory);
     }
+
+    @CrossOrigin
+    @ResponseBody
+    @RequestMapping(value = "/getBookWrapByBookId")
+    public BookWrap getBookWrapByBookId(int bookId)
+    {
+        return bookService.getBookWrapByBookId(bookId);
+    }
+
+
 }

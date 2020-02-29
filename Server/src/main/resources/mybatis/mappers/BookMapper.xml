@@ -24,4 +24,10 @@
   <select id="get50Books" resultType="com.zby.bookshop.pojo.Book">
       select * from book order by id desc limit 50
   </select>
+  <select id="count" resultType="int">
+        select count(1) from book;
+   </select>
+    <select id="countByCategoryId" resultType="int">
+        select count(1) from book_category where categoryid = #{categoryId};
+   </select>
 </mapper>

@@ -66,7 +66,12 @@ public class BookService {
         Book re = bookMapper.selectByPrimaryKey(bookId);
 
         if (re != null)
-            return bookMapper.deleteByPrimaryKey(bookId);
+        {
+             bookMapper.deleteByPrimaryKey(bookId);
+             bookCategoryMapper.deleteByBookId(bookId);
+             bookInfoMapper.deleteByPrimaryKey(bookId);
+             return 1;
+        }
         else
             return 2;//表示不存在书
     }
@@ -128,6 +133,38 @@ public class BookService {
         bookWrap.setLikecount(bookInfo.getLikecount());
         bookWrap.setBookCategoryList(categoryList);
         return bookWrap;
+    }
+    public List<BookWrap> getBookWrapByCategoryList(List<BookCategory> bookCategories)
+    {
+        List<BookWrap> bookWraps = new ArrayList<>();
+        for(int i = 0; i<bookCategories.size();i++)
+        {
+            bookWraps.add(getBookWrapByBookId(bookCategories.get(i).getBookid()));
+        }
+        return bookWraps;
+    }
+
+    public List<BookWrap> getBook()
+    {
+        List<Book> books = bookMapper.get50Books();
+        List<BookWrap> bookWraps = new ArrayList<>();
+        for(int i = 0; i<books.size();i++)
+        {
+            bookWraps.add(getBookWrapByBookId(books.get(i).getId()));
+        }
+        return bookWraps;
+    }
+
+    public List<Book> getBooksByCategoryId(int categoryid)
+    {
+        List<BookCategory> bookCategories = new ArrayList<>();
+        bookCategories = bookCategoryMapper.selectByCategoryId(categoryid);
+        List<Book> books = new ArrayList<>();
+        for (int i = 0;i<bookCategories.size();i++)
+        {
+            books.add(selectBookByBookId(bookCategories.get(i).getBookid()));
+        }
+        return books;
     }
 
 }

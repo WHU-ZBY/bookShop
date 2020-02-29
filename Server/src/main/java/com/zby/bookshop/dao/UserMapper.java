@@ -32,4 +32,15 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
 
     User isNickNameRepeat(String nickname);
+
+    List<User> getRooter(int authority);
+
+    int makeRoot(int uid , int authority);
+
+    int deleteRoot(int uid,int deleteAuthority);
+
+    List<User> getUser();
+
+    int count();
+
 }

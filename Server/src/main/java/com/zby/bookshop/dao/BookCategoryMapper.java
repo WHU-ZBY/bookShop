@@ -33,4 +33,6 @@ public interface BookCategoryMapper {
     List<BookCategory> selectByBookId(int bookid);
 
     List<BookCategory> selectByCategoryId(int categoryid);
+
+    int deleteByBookId(int bookId);
 }

@@ -177,4 +177,7 @@
   <select id="selectByCategoryId" resultType="com.zby.bookshop.pojo.BookCategory">
     select * from book_category where  categoryid = #{categoryid}
   </select>
+  <delete id="deleteByBookId" parameterType="int">
+    delete from book_category where bookid = #{bookId}
+  </delete>
 </mapper>

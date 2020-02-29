@@ -18,4 +18,8 @@ public interface BookMapper {
     Boolean isRepeatBook(String name);
 
     List<Book> get50Books();
+
+    int  count();
+
+    int countByCategoryId(int categoryId);
 }

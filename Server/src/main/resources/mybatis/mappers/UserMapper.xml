@@ -221,4 +221,23 @@
   <select id="isNickNameRepeat" resultType="com.zby.bookshop.pojo.User">
         select * from user where nickname=#{nickname}
   </select>
+  <select id="getRooter" resultType="com.zby.bookshop.pojo.User">
+    select * from user where authority = #{authority}
+  </select>
+  <update id="makeRoot" parameterType="int">
+    update user
+    set authority = #{authority}
+    where uid = #{uid}
+  </update>
+  <update id="deleteRoot" parameterType="int">
+    update user
+    set authority = #{deleteAuthority}
+    where uid = #{uid}
+  </update>
+  <select id="getUser" resultType="com.zby.bookshop.pojo.User">
+    select * from user
+  </select>
+  <select id="count" resultType="int">
+        select count(1) from user;
+   </select>
 </mapper>
