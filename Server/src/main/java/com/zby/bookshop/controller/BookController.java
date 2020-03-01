@@ -113,5 +113,13 @@ public class BookController {
         return bookService.getBookWrapByBookId(bookId);
     }
 
+    @CrossOrigin
+    @ResponseBody
+    @RequestMapping(value = "/updateBook")
+    public int updateBook(@RequestBody BookWrap bookWrap)
+    {
+        return bookService.updateBook(bookWrap);
+    }
+
 
 }

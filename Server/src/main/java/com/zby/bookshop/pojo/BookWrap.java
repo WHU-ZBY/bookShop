@@ -15,7 +15,7 @@ public class BookWrap {
 
     private String intro;
 
-    List<Category> bookCategoryList;
+    List<Integer> CategoryList;
 
     private BigDecimal price;
 
@@ -61,12 +61,12 @@ public class BookWrap {
         this.intro = intro;
     }
 
-    public List<Category> getBookCategoryList() {
-        return bookCategoryList;
+    public List<Integer> getCategoryList() {
+        return CategoryList;
     }
 
-    public void setBookCategoryList(List<Category> bookCategoryList) {
-        this.bookCategoryList = bookCategoryList;
+    public void setCategoryList(List<Integer> categoryList) {
+        CategoryList = categoryList;
     }
 
     public BigDecimal getPrice() {
