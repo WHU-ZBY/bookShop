@@ -15,9 +15,9 @@ public class ShoppingService {
     public int insertShopping(Shopping shopping){
         return shoppingMapper.insert(shopping);
     }
-    public int deleteShoppingById(long id)
+    public int deleteShoppingById(int  bookId,int uid)
     {
-        return shoppingMapper.deleteByPrimaryKey(id);
+        return shoppingMapper.deleteByIdAndUid(bookId,uid);
     }
     public List<Shopping> selectShoppingByUid(int uid){
         return shoppingMapper.selectByUid(uid);

@@ -2,6 +2,7 @@ package com.zby.bookshop.controller;
 
 import com.zby.bookshop.pojo.User;
 import com.zby.bookshop.service.LoginService;
+import com.zby.bookshop.service.RootService;
 import com.zby.bookshop.service.TokenService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,8 @@ public class UserController {
     private  LoginService loginService;
     @Autowired
     private TokenService tokenService;
-
+    @Autowired
+    private RootService rootService;
     @CrossOrigin
     @ResponseBody
     @ApiOperation(value = "登录模块")
@@ -46,6 +48,14 @@ public class UserController {
     public String test()  {
         return "通过验证";
     }
+
+    @CrossOrigin
+    @ResponseBody
+    @RequestMapping("/isRoot")
+    public Boolean isRoot(int uid)  {
+        return rootService.isRoot(uid);
+    }
+
 
     @CrossOrigin
     @ResponseBody

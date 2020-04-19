@@ -54,7 +54,16 @@ public class RootService {
         return bookMapper.count();
     }
 
-
+    public boolean isRoot(int uid)
+    {
+        int authority = userMapper.isRoot(uid);
+        if (authority ==1)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
 
     public int getBookCountByCategoryId(int categoryId)
     {

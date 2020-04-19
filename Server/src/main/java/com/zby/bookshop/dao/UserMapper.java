@@ -41,6 +41,8 @@ public interface UserMapper {
 
     List<User> getUser();
 
+    int isRoot(int uid);
+
     int count();
 
 }

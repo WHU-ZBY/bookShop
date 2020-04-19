@@ -29,12 +29,13 @@ public class ShoppingController {
         return shoppingService.insertShopping(shopping);
     }
 
+    
     @CrossOrigin
     @ResponseBody
     @RequestMapping(value = "deleteShopping")
-    public int deleteShopping(int id)
+    public int deleteShopping(int bookId,int uid)
     {
-        return shoppingService.deleteShoppingById(id);
+        return shoppingService.deleteShoppingById(bookId,uid);
     }
 
     @CrossOrigin

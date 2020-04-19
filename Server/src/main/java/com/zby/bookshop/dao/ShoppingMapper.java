@@ -33,4 +33,6 @@ public interface ShoppingMapper {
     List<Shopping> selectByUid(Integer uid);
 
     List<Shopping> selectByBookId(Integer bookId);
+
+    int deleteByIdAndUid(int bookId,int uid);
 }

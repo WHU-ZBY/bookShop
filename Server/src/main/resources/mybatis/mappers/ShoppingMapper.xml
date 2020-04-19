@@ -177,4 +177,7 @@
   <select id="selectByBookId" resultType="com.zby.bookshop.pojo.Shopping">
     select * from shopping where bookId = #{bookId};
   </select>
+  <delete id="deleteByIdAndUid">
+    delete  from shopping where  bookId=#{bookId} and uid = #{uid}
+  </delete>
 </mapper>

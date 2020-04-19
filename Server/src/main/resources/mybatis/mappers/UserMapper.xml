@@ -240,4 +240,7 @@
   <select id="count" resultType="int">
         select count(1) from user;
    </select>
+  <select id="isRoot" resultType="int" parameterType="int">
+    select authority from user where uid =#{uid}
+  </select>
 </mapper>
