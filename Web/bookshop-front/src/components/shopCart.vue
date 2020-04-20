@@ -154,9 +154,10 @@ export default {
     },
     handleSelectionChange(val) {
       //处理多选框变化
+      this.totalPrice = 0;
       if (val == 0) return;
       this.multipleSelection = val;
-      this.totalPrice = 0;
+
       console.log(this.multipleSelection);
       this.multipleSelection.forEach(book => {
         this.totalPrice = this.totalPrice + book.price;

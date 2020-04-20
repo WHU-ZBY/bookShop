@@ -174,7 +174,7 @@ export default {
             this.$uid.value = decoded.userId;
             this.$nickname.value = decoded.loginName;
             this.$confirm(
-              "注册成功，您账号ID为" + decoded.uid + "请保留ID，并记住密码",
+              "注册成功，您账号ID为" + decoded.userId + "请保留ID，并记住密码",
               "提示",
               {
                 confirmButtonText: "前往书店",
