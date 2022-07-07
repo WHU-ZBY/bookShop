@@ -16,7 +16,7 @@
     "font-awesome": "^4.7.0",
     "hls.js": "^0.12.4",
     "jwt-decode": "^2.2.0",
-    "moment": "^2.22.1",
+    "moment": "^2.29.4",
     "node-sass": "^4.13.1",
     "nodesass": "0.0.2-security",
     "normalize.css": "^5.0.0",
